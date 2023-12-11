@@ -1,2 +1,2 @@
 #!/bin/bash
-touch 100-empty_casks
+find . -empty | rev | cut -d '/' -f 1 | rev
