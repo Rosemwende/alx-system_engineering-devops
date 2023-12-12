@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $result
+export $((128 + $TRUEKNOWLEDGE))
