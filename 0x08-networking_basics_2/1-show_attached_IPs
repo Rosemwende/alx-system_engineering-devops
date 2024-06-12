@@ -2,4 +2,4 @@
 #a Bash script that displays all active IPv4 IPs on
 #the machine it’s executed on
 
-ipconfig -a | grep "inet addr" | cut -d " " -f12 " cut -d ":" -f2
+ifconfig -a | grep "inet addr" | cut -d " " -f12 | cut -d ":" -f2
