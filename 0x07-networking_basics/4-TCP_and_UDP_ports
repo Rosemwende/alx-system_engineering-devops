@@ -1,6 +1,6 @@
 #!/usr/bin/emv bash
-#Bash script that displays listening ports
+#a Bash script that displays listening ports:
 #That only shows listening sockets
 #That shows the PID and name of the program to which each socket belongs
 
-netstat -lp
+netstat -l -p
