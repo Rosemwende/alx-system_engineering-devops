@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 #commands used to fix the apache server
+#command used to fix apache server
+sudo apt update
+sudo apt upgrade
+sudo apt install apache2
 sudo service apache2 start
 
