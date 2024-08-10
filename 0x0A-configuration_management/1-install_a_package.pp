@@ -10,10 +10,3 @@ exec { 'install_flask':
   path    => ['/usr/bin', '/usr/local/bin'],
   unless  => '/usr/bin/pip3 show Flask | grep "Version: 2.1.0"',
 }
-
-# Install Werkzeug version 2.1.0 using pip3
-exec { 'install_werkzeug':
-  command => '/usr/bin/pip3 install Werkzeug==2.1.0',
-  path    => ['/usr/bin', '/usr/local/bin'],
-  unless  => '/usr/bin/pip3 show Werkzeug | grep "Version: 2.1.0"',
-}
