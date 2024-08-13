@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Bash script that stops 4-to_infinity_and_beyond process
+# You cannot use kill or killall
+
+PID=$(pgrep -f "4-to_infinity_and_beyond")
+
+if [ -n "$PID" ]; then
+    echo " " > /proc/$PID/fd/0
+fi
