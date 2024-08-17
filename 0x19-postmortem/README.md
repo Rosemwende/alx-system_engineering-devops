@@ -1,6 +1,7 @@
 #0x19. Postmortem using 0x0E. Web stack debugging #1
 
 Issue Summary
+
 Duration of the outage: The outage lasted for 1hour rom 9AM TO 10AM East African Time.
 Impact: During the outage, the server experienced high CPU usage, resulting in slow
 response times timeouts. Approximately 70% of users were affected, leading to a degraded
@@ -9,6 +10,7 @@ Root cause: The root cause was an infinite loop in the server's application code
 caused the server process to consume excessive CPU resources.
 
 Timeline
+
 > 9:00 AM: The issue was detected by automated monitoring tools, which triggered an alert
 due to the server's CPU usage exceeding 90%.
 > 9:05 AM: The on-call engineer received the alert anf began investigating the servers performance
@@ -26,6 +28,7 @@ update that introduced an infinite loop.
 > 10:00 AM: The website's performance returned to normal, and the incident was was officially resolved.
 
 Root cause and Resolution
+
 Root cause: The infinite loop was introduced in the server's code during a recent deployment. The loop
 caused the server to continuously execute the same code block without termination, leading to excessive
 CPU usage and degraded performance.
@@ -33,6 +36,7 @@ Resolution: The resolution involved rolling back the recent deployment to a stab
 cod, which removed the infinite loop and restored normal server operations.
 
 Corrective and Preventative Measures
+
 Improvements:
 Enhance code review processes to catch logical errors like infinite loops before deployment.
 Implement automated tests that simulate high-load scenarios to identify performance issues in development.
