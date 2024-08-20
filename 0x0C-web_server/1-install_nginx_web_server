@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script installs and configures the Nginx web server to serve a page with "Hello World!"
+
+apt-get update -y
+apt-get install nginx -y
+echo "Hello World!" > /var/www/html/index.html
+service nginx start
+service nginx restart
+exit $?
