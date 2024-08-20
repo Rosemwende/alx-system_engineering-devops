@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script installs Nginx and configures a 301 redirect from /redirect_me to a specified URL
+
+apt-get update -y
+apt-get install nginx -y
+REDIRECT_URL="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+CONFIG_FILE="/etc/nginx/sites-available/default"
+sed -i "/server_name _;/a \\    location /redirect_me {\n        return 301 $REDIRECT_URL;\n    }" $CONFIG_FILE
+service nginx restart
+exit $?
