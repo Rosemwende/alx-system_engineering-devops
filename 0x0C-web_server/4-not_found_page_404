@@ -3,8 +3,11 @@
 
 apt-get update -y
 apt-get install nginx -y
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+sudo ufw allow 'ngix HTTP'
+sh -c 'echo "Hello World!" > /var/www/html/index.html'
+sudo touch /var/www/html/404.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 CONFIG_FILE="/etc/nginx/sites-available/default"
-sed -i "/server_name _;/a \\    error_page 404 /custom_404.html;\n    location = /custom_404.html {\n        internal;\n    }" $CONFIG_FILE
+sed -i "/server_name _;/a \\    error_page 404 /404.html;\n    location = /404.html {\n        internal;\n    }" $CONFIG_FILE
 service nginx restart
 exit $?
