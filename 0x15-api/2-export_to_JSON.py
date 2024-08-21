@@ -13,15 +13,13 @@ def get_employee_todos_progress(employee_id):
     """Fetches and returns the employee's todos progress"""
     try:
         url = "https://jsonplaceholder.typicode.com/"
-        user_datas = requests.get("{}users/{}"
-			.format(url, employee_id))
+        user_datas = requests.get("{}users/{}".format(url, employee_id))
         user_data = user_datas.json()
         employee_name = user_data['name']
         username = user_data['username']
 
         """fetch the employee's todos list"""
-        todos_list = requests.get("{}todos?userId={}"
-			.format(url, employee_id))
+        todos_list = requests.get("{}todos?userId={}".format(url, employee_id))
         json_todos_list = todos_list.json()
 
         """Prepare the data for JSON export"""
@@ -42,10 +40,8 @@ def get_employee_todos_progress(employee_id):
 
         """Display the result"""
         total_task = len(json_todos_list)
-        task_done = len([task for task in json_todos_list
-			if task['completed']])
-        print(f"Employee {employee_name}
-		is done with tasks ({task_done}/{total_task})")
+        task_done = len([task for task in json_todos_list if task['completed']])
+        print(f"Employee {employee_name} is done with tasks ({task_done}/{total_task})")
 
         """Title of completed tasks"""
         for task in tasks_list:
